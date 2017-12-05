@@ -1,3 +1,14 @@
+<!--
+Name: Prachi Patel
+E-mail: Prachi_Patel@student.uml.edu
+Comp.4610, GUI Programming I
+Homework 6: jQuery Slider and Tabs
+File: 
+Created: 11/29/2017
+Last updated by PP: 12/3/2017
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,82 +20,103 @@
         <link rel="stylesheet" type="text/css" href="hw6.css">
         <link rel="stylesheet" type="text/css" href="hw6_slider.css">
         <link rel="stylesheet" type="text/css" href="hw6_tab.css">
+        
+        <!-- jQuery Validation -->
 
-        <title>jQuery UI Slider - Default functionality</title>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        
+        <title>jQuery UI Slider - Default functionality</title>
 
     </head>
     <body>
         <h1>Car Cost Calculator</h1>
         <br/><br/>
         
-        <form id="clc_form" onsubmit="return false">
-            <div>
-                <label for="rebate"> Rebate($): </label> <input type="number" class="input" id="rebate" > 
-                <div id="rebate_slider" class="jqslider"></div>
-                <br/>
-            </div>
-            
-            <div>
-                <label for="downPay"> Down Payment(%): </label> <input type="number" class="input" id="downPay" value="0">
-                <div id="downpay_slider" class="jqslider"></div>
-                <br/>
-            </div>
-            
-            <div>
-                <label for="interest"> Interest(%): </label> <input type="number" class="input" id="interest" value="0">
-                <div id="interest_slider" class="jqslider">
+        <div id="tabs">
+        <ul class="tag-list">
+            <li><a  class="active" href="#tab-params">Tabs</a>
+            </li>
+            <button id='all-delete-confirm-tab' class='delete-con-all-tab-btn'>Delete Selected Tab</button>
+            <button id='all-delete-tab' class='delete-all-tab-btn'>Select TABS</button>
+        </ul>
+        
+        <div id="tab-params">
+            <br/><br/>
+            <label for="comparison_name"> Tab Title: </label>
+            <input id="comparison_name" type='text' name="comp_name">
+            <br/><br/>
+
+            <form id="clc_form" onsubmit="return false">
+                <div>
+                   <br/><br/>
+                    <label for="rebate"> Rebate($): </label> <input type="number" class="input" id="rebate" > 
+                    <div id="rebate_slider" class="jqslider"></div>
+                    <br/>
                 </div>
-                <br/>
-            </div>
-                
-            <div>
-                <label for="months"> Months: </label> <input type="number" class="input" id="months" value="0">
-                <div id="months_slider" class="jqslider"></div>
-                <br/>
-            </div>
-                
-            <div>
-                <label for="milesPerYear"> Miles driven per year: </label> <input type="number" class="input" id="milesPerYear" value="0">
-                <div id="mpy_slider" class="jqslider"></div>
-                <br/>
-            </div>
+
+                <div>
+                    <label for="downPay"> Down Payment(%): </label> <input type="number" class="input" id="downPay">
+                    <div id="downpay_slider" class="jqslider"></div>
+                    <br/>
+                </div>
+
+                <div>
+                    <label for="interest"> Interest(%): </label> <input type="number" class="input" id="interest">
+                    <div id="interest_slider" class="jqslider">
+                    </div>
+                    <br/>
+                </div>
+
+                <div>
+                    <label for="months"> Months: </label> <input type="number" class="input" id="months">
+                    <div id="months_slider" class="jqslider"></div>
+                    <br/>
+                </div>
+
+                <div>
+                    <label for="milesPerYear"> Miles driven per year: </label> <input type="number" class="input" id="milesPerYear">
+                    <div id="mpy_slider" class="jqslider"></div>
+                    <br/>
+                </div>
+
+                <div>
+                    <label for="priceGallon"> Current price of gas per gallon($): </label> <input type="number" class="input" id="priceGallon">
+                    <div id="priceGallon_slider" class="jqslider"></div>
+                    <br/>
+                </div>
+
+                <div id="price_val">
+                    <label for="priceNum">How many price purchasing number you goning to compare?:</label>
+                    <input type="number" class="input" id="priceNum">
+                    <button onclick="priceFields()">Next</button>
+                    <div id="price_slider" class="jqslider"></div>
+                    <div id="priceContainer"></div>
+                    <br/><br/>
+                </div>
+
+                <div id="name"></div>
+
+               <div id="price_val">
+                    <label for="mpgNum">How many mpg (Mile Per Gallon) you going to compare?:</label>
+                    <input type="number" class="input" id="mpgNum">
+                    <button onclick="mpgFields()">Next</button>
+                    <div id="mpg_slider" class="jqslider"></div>
+                    <div id="mpgContainer"></div>
+                    <br/><br/>
+                </div>
+
+                <br/><br/>
+                <button class="tableButton" onclick="addTable()"> Submit </button>  
+                <br/><br/>
+
+                <div id="displayTable"></div>
+            </form>
+        </div>
             
-            <div>
-                <label for="priceGallon"> Current price of gas per gallon($): </label> <input type="number" class="input" id="priceGallon" value="0">
-                <div id="priceGallon_slider" class="jqslider"></div>
-                <br/>
-            </div>
-            
-            <div id="price_val">
-                <label for="priceNum">How many price purchasing number you goning to compare?:</label>
-                <input type="number" class="input" id="priceNum" value="0">
-                <button onclick="priceFields()">Next</button>
-                <div id="price_slider" class="jqslider"></div>
-                <br/>
-            </div>
-
-            <div id="priceContainer"></div><br/>
-            <div id="name"></div>
-
-           <div id="price_val">
-                <label for="mpgNum">How many mpg (Mile Per Gallon) you going to compare?:</label>
-                <input type="number" class="input" id="mpgNum" value="0">
-                <button onclick="mpgFields()">Next</button>
-                <div id="mpg_slider" class="jqslider"></div>
-                <br/>
-            </div>
-
-            <div id="mpgContainer"></div><br/>
-
-            <br/><br/>
-            <button class="tableButton" onclick="addTable()"> Submit </button>  
-            <br/><br/>
-
-            <div id="displayTable"></div>
-        </form>
+    <script src="hw6.js"></script>
+    <!-- need to set up vaidation things <script src="hw6_validation.js"></script> -->
     
     <script src="hw6_slider.js"></script>
     <script src="hw6_tab.js"></script>

@@ -1,0 +1,74 @@
+/*
+Name: Prachi Patel
+E-mail: Prachi_Patel@student.uml.edu
+Comp.4610, GUI Programming I
+Homework 6: jQuery Slider and Tabs
+File: 
+Created: 11/29/2017
+Last updated by PP: 12/3/2017
+*/
+
+#tabs {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+#tab-params{
+    color: crimson;
+    font-weight: bold;
+    color: crimson;
+    background-color: #100a1c;
+}
+
+.active {
+    background-color: #2da067;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.delete-tab-btn{
+    display: none;
+    margin-left: 10px;
+    height: 30px;
+    width: 30px;
+    padding: 1px;
+}
+
+.delete-all-tab-btn{
+    float: right;
+    height: 35px;
+    border-radius: 18px;
+    display: block;
+    color: white;
+    text-align: center;
+    margin-bottom: 3px;
+    background-color: #2229db;
+}
+
+.delete-con-all-tab-btn{
+    float: right;
+    height: 40px;
+    margin-left: 10px;
+    border-radius: 18.5px;
+    display: none;
+    color: white;
+    text-align: center;
+    margin-bottom: 5px;
+    background-color: #ce1a1a;
+}
+
+.delete-tab-cb{
+    display: none;
+    margin-left: 10px;
+    height: 30px;
+    width: 30px;
+    border-radius: initial;
+    padding: 0.5px;
+}
+
+.price-error{
+    display: none;
+    color: red;
+}
